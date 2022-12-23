@@ -1,0 +1,77 @@
+import 'package:flutter/material.dart';
+import 'package:mini_theater/services/video_api.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
+import '../../models/videos.dart';
+import '../../utils/colors.dart';
+
+class VideoSlider extends StatelessWidget {
+  VideoSlider({required this.movieID, super.key});
+  String movieID;
+
+  VideoApi get videoData => VideoApi(movieID: movieID);
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return FutureBuilder(
+      future: videoData.getVideos(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.hasData) {
+          List<Video>? videoData = snapshot.data;
+          return SizedBox(
+            height: 300,
+            width: size.width * 0.915,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: 2,
+              separatorBuilder: (BuildContext context, int index) {
+                return VideoViewer(videoID: videoData![index].videoID);
+              },
+              itemBuilder: (BuildContext context, int index) {
+                return const SizedBox(
+                  width: 1,
+                );
+              },
+            ),
+          );
+        }
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+  }
+}
+
+class VideoViewer extends StatelessWidget {
+  VideoViewer({Key? key, required this.videoID}) : super(key: key);
+
+  String videoID;
+
+  YoutubePlayerController get _controller => YoutubePlayerController(
+        initialVideoId: videoID,
+        flags: const YoutubePlayerFlags(
+          autoPlay: true,
+          mute: false,
+        ),
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: YoutubePlayer(
+        controller: _controller,
+        showVideoProgressIndicator: true,
+        progressIndicatorColor: white,
+        progressColors: const ProgressBarColors(
+          playedColor: Colors.amber,
+          handleColor: Colors.amberAccent,
+        ),
+        onReady: () {
+          _controller.addListener(() {});
+        },
+      ),
+    );
+  }
+}

@@ -5,15 +5,13 @@
 # https://api.themoviedb.org/3/movie/436270?api_key=79e1826269e1778d2c8f71432872d647&language=en-US
 
 //Movie videos
-# https://api.themoviedb.org/3/movie/436270/videos?api_key=79e1826269e1778d2c8f71432872d647&language=en-US
+https://api.themoviedb.org/3/movie/436270/videos?api_key=79e1826269e1778d2c8f71432872d647&language=en-US
 
 //Reviews
 # https://api.themoviedb.org/3/movie/436270/reviews?api_key=79e1826269e1778d2c8f71432872d647&language=en-US&page=1
 
 //Movie credits
 # https://api.themoviedb.org/3/movie/436270/credits?api_key=79e1826269e1778d2c8f71432872d647&language=en-US
-
-https://api.themoviedb.org/3/search/movie?api_key=79e1826269e1778d2c8f71432872d647&query=hello
 
 // Movie Search
 # https://api.themoviedb.org/3/search/movie?api_key=79e1826269e1778d2c8f71432872d647&query=see

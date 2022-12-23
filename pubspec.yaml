@@ -41,6 +41,7 @@ dependencies:
   invoiceninja: ^0.0.9
   intl: ^0.18.0
   animate_do: ^3.0.2
+  youtube_player_flutter: ^8.1.1
 
 dev_dependencies:
   flutter_test:
