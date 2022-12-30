@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
               HeaderSlider(),
               Padding(
                 padding: const EdgeInsets.only(
-                    left: 15, top: 10, right: 15, bottom: 2.5),
+                    left: 15, top: 12.5, right: 15, bottom: 2.5),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -75,7 +75,7 @@ class HomePage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    left: 15, top: 10, right: 15, bottom: 2.5),
+                    left: 15, top: 12.5, right: 15, bottom: 2.5),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -104,7 +104,7 @@ class HomePage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    left: 15, top: 10, right: 15, bottom: 2.5),
+                    left: 15, top: 12.5, right: 15, bottom: 2.5),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

@@ -10,17 +10,17 @@ class SeeMoreButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.only(top: 5, bottom: 2),
       child: Container(
-        height: 27,
+        height: 28,
         width: 95,
         decoration: BoxDecoration(
           color: white.withOpacity(0.2),
-          borderRadius: BorderRadius.circular(12.5),
+          borderRadius: BorderRadius.circular(14),
         ),
         child: const Center(
           child: Text(
-            'See more...',
+            'See more',
             style: TextStyle(color: white, fontWeight: FontWeight.w400),
           ),
         ),

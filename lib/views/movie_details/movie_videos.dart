@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_theater/components/title_text.dart';
 import 'package:mini_theater/services/video_api.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -6,8 +7,8 @@ import '../../models/videos.dart';
 import '../../utils/colors.dart';
 
 class VideoSlider extends StatelessWidget {
-  VideoSlider({required this.movieID, super.key});
-  String movieID;
+  const VideoSlider({required this.movieID, super.key});
+  final String movieID;
 
   VideoApi get videoData => VideoApi(movieID: movieID);
 
@@ -22,15 +23,11 @@ class VideoSlider extends StatelessWidget {
           return SizedBox(
             height: 300,
             width: size.width * 0.915,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              itemCount: 2,
-              separatorBuilder: (BuildContext context, int index) {
-                return VideoViewer(videoID: videoData![index].videoID);
-              },
+            child: PageView.builder(
+              itemCount: 5,
               itemBuilder: (BuildContext context, int index) {
-                return const SizedBox(
-                  width: 1,
+                return VideoViewer(
+                  videoID: videoData![index].videoID,
                 );
               },
             ),
@@ -45,9 +42,9 @@ class VideoSlider extends StatelessWidget {
 }
 
 class VideoViewer extends StatelessWidget {
-  VideoViewer({Key? key, required this.videoID}) : super(key: key);
+  const VideoViewer({Key? key, required this.videoID}) : super(key: key);
 
-  String videoID;
+  final String videoID;
 
   YoutubePlayerController get _controller => YoutubePlayerController(
         initialVideoId: videoID,
@@ -59,19 +56,25 @@ class VideoViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: YoutubePlayer(
-        controller: _controller,
-        showVideoProgressIndicator: true,
-        progressIndicatorColor: white,
-        progressColors: const ProgressBarColors(
-          playedColor: Colors.amber,
-          handleColor: Colors.amberAccent,
+    return Column(
+      children: [
+        YoutubePlayer(
+          controller: _controller,
+          showVideoProgressIndicator: true,
+          progressIndicatorColor: white,
+          progressColors: const ProgressBarColors(
+            playedColor: Colors.amber,
+            handleColor: Colors.amberAccent,
+          ),
+          onReady: () {
+            _controller.addListener(() {});
+          },
         ),
-        onReady: () {
-          _controller.addListener(() {});
-        },
-      ),
+        const TitleText(
+          title: 'Video',
+          fontSize: 20,
+        ),
+      ],
     );
   }
 }

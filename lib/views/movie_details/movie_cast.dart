@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mini_theater/components/title_text.dart';
 import 'package:mini_theater/models/cast.dart';
 import 'package:mini_theater/services/cast_api.dart';
-import 'package:mini_theater/utils/colors.dart';
-
-import '../../components/body_text.dart';
 import '../../utils/assets_constants.dart';
 
 class MovieCast extends StatelessWidget {

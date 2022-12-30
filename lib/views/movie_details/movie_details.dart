@@ -99,16 +99,16 @@ class MovieDetails extends StatelessWidget {
                           const SizedBox(
                             height: 15,
                           ),
-                          const Padding(
-                            padding: EdgeInsets.only(left: 20, bottom: 15),
-                            child: TitleText(
-                              title: 'Videos',
-                              fontSize: 20,
-                            ),
-                          ),
-                          Center(
-                            child: VideoSlider(movieID: id),
-                          ),
+                          // const Padding(
+                          //   padding: EdgeInsets.only(left: 20, bottom: 15),
+                          //   child: TitleText(
+                          //     title: 'Videos',
+                          //     fontSize: 20,
+                          //   ),
+                          // ),
+                          // Center(
+                          //   child: VideoSlider(movieID: id),
+                          // ),
                           const Padding(
                             padding: EdgeInsets.only(left: 20, top: 20),
                             child: TitleText(
