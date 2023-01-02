@@ -1,6 +1,6 @@
 # Mini Theater
 
-Flutter based mabile app for die hard movie fans.
+Flutter based mobile app for die hard movie fans.
 
 ## About
 
